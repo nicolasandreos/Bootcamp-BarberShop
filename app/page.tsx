@@ -35,27 +35,29 @@ const Home = async () => {
 
           <BookingItem date={new Date("2025-02-10T14:00:00Z")} serviceName="Corte de Cabelo" barberShopName="Barbearia do Jõao" barberShopImageUrl="https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png"/>
         </PageSection>
-
-        <PageSection>
-          <h2 className="text-xs text-foreground uppercase font-semibold">Recomendados</h2>
-          <PageSectionScroller>
-            {recommendedBarbershops.map((barbershop) => (
-              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-            ))}
-          </PageSectionScroller>
-        </PageSection>
         
-        <PageSection>
-          <PageSectionTitle>
-            Populares
-          </PageSectionTitle>
-            
-          <PageSectionScroller>
-            {popularBarbershops.map((barbershop) => (
-              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-            ))}
-          </PageSectionScroller>
-        </PageSection>
+        <div className="flex flex-col gap-7.5">
+          <PageSection>
+            <PageSectionTitle>Recomendados</PageSectionTitle>
+            <PageSectionScroller>
+              {recommendedBarbershops.map((barbershop) => (
+                <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+              ))}
+            </PageSectionScroller>
+          </PageSection>
+          
+          <PageSection>
+            <PageSectionTitle>
+              Populares
+            </PageSectionTitle>
+              
+            <PageSectionScroller>
+              {popularBarbershops.map((barbershop) => (
+                <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+              ))}
+            </PageSectionScroller>
+          </PageSection>
+        </div>
 
       </PageContainer>
 

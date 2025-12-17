@@ -1,6 +1,6 @@
 export const PageContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="space-y-6 p-5">
+    <div className="space-y-15 p-5">
         {children}
     </div>
   );
@@ -8,7 +8,7 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => {
 
 export const PageSectionTitle = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h2 className="text-xs text-foreground uppercase font-semibold">
+    <h2 className="text-sm text-foreground uppercase font-bold">
         {children}
     </h2>
   );
