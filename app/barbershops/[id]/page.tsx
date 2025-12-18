@@ -1,5 +1,7 @@
 import BackButton from "@/app/_components/back-button";
+import BarbershopPhoneCopy from "@/app/_components/barbershop-phone-copy";
 import BarbershopServiceItem from "@/app/_components/barbershop-service-item";
+import Footer from "@/app/_components/footer";
 import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
 import { PageContainer, PageSection, PageSectionTitle } from "@/app/_components/ui/page";
 import { prisma } from "@/lib/prisma";
@@ -44,17 +46,24 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
 
                 <PageSection>
                     <PageSectionTitle>Sobre nós</PageSectionTitle>
-                    <p >{barbershop.description}</p>
+                    <p>{barbershop.description}</p>
                 </PageSection>
 
                 <PageSection>
                     <PageSectionTitle>Serviços</PageSectionTitle>
-                    {barbershop.services.map((s) => (
-                        <BarbershopServiceItem key={s.id} service={s}></BarbershopServiceItem>
-                    ))}
+                    <div className="flex flex-col">
+                        {barbershop.services.map((s) => (
+                            <BarbershopServiceItem key={s.id} service={s}></BarbershopServiceItem>
+                        ))}
+                    </div>
                 </PageSection>
 
+                <PageSection>
+                    <PageSectionTitle>Contato</PageSectionTitle>
+                    {barbershop.phones.map(phone => <BarbershopPhoneCopy key={barbershop.id} phone={phone}/>)}
+                </PageSection>
             </PageContainer>
+            <Footer />
         </div>
     </>
   );
