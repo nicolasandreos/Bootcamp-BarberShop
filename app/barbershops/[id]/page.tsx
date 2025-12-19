@@ -53,14 +53,14 @@ const BarbershopPage = async (props: PageProps<"/barbershops/[id]">) => {
                     <PageSectionTitle>Serviços</PageSectionTitle>
                     <div className="flex flex-col">
                         {barbershop.services.map((s) => (
-                            <BarbershopServiceItem key={s.id} service={s}></BarbershopServiceItem>
+                            <BarbershopServiceItem key={s.id} barbershop={barbershop} service={s}></BarbershopServiceItem>
                         ))}
                     </div>
                 </PageSection>
 
                 <PageSection>
                     <PageSectionTitle>Contato</PageSectionTitle>
-                    {barbershop.phones.map(phone => <BarbershopPhoneCopy key={barbershop.id} phone={phone}/>)}
+                    {barbershop.phones.map((phone, index) => <BarbershopPhoneCopy key={index} phone={phone}/>)}
                 </PageSection>
             </PageContainer>
             <Footer />

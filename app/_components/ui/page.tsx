@@ -1,6 +1,8 @@
-export const PageContainer = ({ children }: { children: React.ReactNode }) => {
+import { cn } from "@/lib/utils";
+
+export const PageContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => {
   return (
-    <div className="space-y-15 p-5">
+    <div className={cn("space-y-12 p-5", className)}>
         {children}
     </div>
   );
